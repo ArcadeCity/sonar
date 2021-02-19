@@ -11,7 +11,9 @@ const Login = () => {
   }, [])
   const login = async () => {
     try {
-      await m.auth.loginWithMagicLink({ email: 'chris@arcade.city' })
+      await m.auth.loginWithMagicLink({
+        email: process.env.NEXT_PUBLIC_DEMO_EMAIL,
+      })
       const didToken = await m.user.getIdToken()
       console.log(`Authed with didToken ${didToken}`)
     } catch (e) {
