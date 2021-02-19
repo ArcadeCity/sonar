@@ -13,6 +13,7 @@ const Bg = () => {
     bg: router && router.route !== '/box' ? 0 : 0x17 / 255,
   })
   return <a.color attach='background' r={bg} g={bg} b={bg} />
+  // return <a.color attach='background' r={0} g={19} b={81} />
 }
 const LCanvas = ({ children }) => {
   return (

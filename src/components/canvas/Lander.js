@@ -22,10 +22,10 @@ const LanderComponent = () => {
       <water />
       {/* <Effects /> */}
       <ambientLight intensity={0.5} />
-      <Sphere args={[1, 32, 32]}>
+      {/* <Sphere args={[1, 32, 32]}>
         <M factor={2} color={color} />
-      </Sphere>
-      <Environment preset={'studio'} />
+      </Sphere> */}
+      <Environment background={false} preset={'dawn'} />
     </Suspense>
   )
 }

@@ -23,9 +23,9 @@ const Login = () => {
   return (
     <button
       onClick={login}
-      className='bg-gray-700 font-mono absolute z-20 rounded-lg px-4 p-2 m-2 text-white focus:outline-none focus:ring'
+      className='right-0 bg-bio2 hover:bg-bio3 font-mono absolute z-20 rounded-lg px-4 pb-2 pt-3 m-4 text-white focus:outline-none focus:ring'
     >
-      Log in
+      LOGIN
     </button>
   )
 }
