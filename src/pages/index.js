@@ -2,7 +2,7 @@ import useStore from '@/helpers/store'
 import dynamic from 'next/dynamic'
 import Login from '@/components/dom/login'
 
-const Sphere = dynamic(() => import('@/components/canvas/Sphere'), {
+const Lander = dynamic(() => import('@/components/canvas/Lander'), {
   ssr: false,
 })
 
@@ -10,7 +10,7 @@ const Page = () => {
   useStore.setState({ title: 'Sonar' })
   return (
     <>
-      <Sphere r3f />
+      <Lander r3f />
       <Login />
     </>
   )

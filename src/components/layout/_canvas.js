@@ -1,5 +1,5 @@
 import { Canvas } from 'react-three-fiber'
-import { Perf } from 'r3f-perf'
+// import { Perf } from 'r3f-perf'
 import useStore from '@/helpers/store'
 import { OrbitControls, Preload } from '@react-three/drei'
 import { a, useSpring } from '@react-spring/three'
@@ -27,7 +27,7 @@ const LCanvas = ({ children }) => {
     >
       <Preload all />
       <Bg />
-      <Perf openByDefault trackGPU={true} position={'bottom-right'} />
+      {/* <Perf openByDefault trackGPU={true} position={'bottom-right'} /> */}
       <OrbitControls />
       {/* <MaterialEditor /> */}
       {/* <EffectComposer ref={useEditorComposer()}> */}
