@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 @tailwind base;
 @tailwind components;
 
@@ -22,32 +24,6 @@ body {
     padding: 0;
     overflow: hidden;
   }
-
-  .glow {
-    /* These three properties are where the magic happens: */
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 4px hsl(333deg 100% 50%);
-    filter: drop-shadow(0px 2px 2px hsl(0deg 0% 0% / 0.5))
-      drop-shadow(0px 0px 4px hsl(333deg 100% 50% / 0.5))
-      drop-shadow(0px 0px 10px hsl(333deg 100% 50% / 0.5))
-      drop-shadow(0px 0px 50px hsl(333deg 100% 50% / 1));
-
-    /* Fallback for IE */
-    color: deeppink;
-
-    /* Misc aesthetic properties */
-    font-size: 96px;
-    font-weight: 900;
-    /* font-family: 'Josefin Sans', sans-serif; */
-    letter-spacing: -1px;
-  }
-
-  /*
-    The default blue selection color clashes.
-  */
-  /* ::selection {
-    background-color: hsl(0deg 0% 0%);
-  } */
 
   @font-face {
     font-family: 'Josefin Sans';
