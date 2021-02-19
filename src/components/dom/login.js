@@ -1,8 +1,22 @@
-import Link from 'next/link'
+import { useEffect } from 'react'
+import { Magic } from 'magic-sdk'
+
+console.log(process.env.NEXT_PUBLIC_MAGIC_PK)
+
+const m = process.browser && new Magic(process.env.NEXT_PUBLIC_MAGIC_PK)
 
 const Login = () => {
-  const login = () => {
-    alert('You clicked log in')
+  useEffect(() => {
+    console.log('Email:', process.env.NEXT_PUBLIC_DEMO_EMAIL)
+  }, [])
+  const login = async () => {
+    try {
+      await m.auth.loginWithMagicLink({ email: 'chris@arcade.city' })
+      const didToken = await m.user.getIdToken()
+      console.log(`Authed with didToken ${didToken}`)
+    } catch (e) {
+      console.log('Error', e)
+    }
   }
   return (
     <button
