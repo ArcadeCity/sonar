@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
 @tailwind base;
 @tailwind components;
 
@@ -104,38 +102,6 @@ body {
     font-weight: 700;
     src: url('/fonts/JosefinSans-BoldItalic.ttf') format('truetype');
   }
-  /*
-  @font-face {
-    font-family: 'Josefin Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 800;
-    src: url('/fonts/JosefinSans-ExtraBold.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Josefin Sans';
-    font-style: italic;
-    font-display: swap;
-    font-weight: 800;
-    src: url('/fonts/JosefinSans-ExtraBoldItalic.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Josefin Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 900;
-    src: url('/fonts/JosefinSans-Black.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Josefin Sans';
-    font-style: italic;
-    font-display: swap;
-    font-weight: 900;
-    src: url('/fonts/JosefinSans-BlackItalic.ttf') format('truetype');
-  } */
 
   @font-face {
     font-family: 'Titillium Web';
