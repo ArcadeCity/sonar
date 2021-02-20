@@ -11,6 +11,7 @@ const Header = () => {
 }
 const Dom = ({ dom }) => {
   const events = useStore((s) => s.events)
+  events && delete events.onGotPointerCaptureLegacy // https://github.com/pmndrs/react-three-fiber/issues/462#issuecomment-653227107
   return (
     <div className='absolute top-0 left-0 right-0 z-20 dom' {...events}>
       <Header />
