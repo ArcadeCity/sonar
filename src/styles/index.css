@@ -4,6 +4,7 @@
 html,
 body {
   @apply bg-black;
+  @apply text-arwes;
 }
 
 @tailwind utilities;
