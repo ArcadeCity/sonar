@@ -12,6 +12,8 @@ const Login = () => {
       await m.auth.loginWithMagicLink({ email })
       const didToken = await m.user.getIdToken()
       console.log(`Authed with didToken ${didToken}`)
+      const metadata = await m.user.getMetadata()
+      console.log('Metadata', metadata)
     } catch (e) {
       console.log('Error', e)
     }
