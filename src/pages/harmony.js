@@ -27,6 +27,41 @@ const harmony = new Index(
   }
 )
 
+let contractAddress = '0xec9661e28d961945d84bd77ecf6be868aa7a46e7'
+
+const contractAbi = [
+  {
+    constant: false,
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'num',
+        type: 'uint256',
+      },
+    ],
+    name: 'store',
+    outputs: [],
+    payable: false,
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: 'retreive',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+]
+
 const HarmonyPage = () => {
   const [email, setEmail] = useState('')
   const [publicAddress, setPublicAddress] = useState('')
