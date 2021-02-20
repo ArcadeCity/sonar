@@ -3,8 +3,9 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: 'Josefin Sans',
+      sans: 'Titillium Web',
       arwes: 'Titillium Web',
+      josefin: 'Josefin Sans',
     },
     extend: {
       colors: {
