@@ -147,7 +147,9 @@ const HarmonyPage = () => {
     <div className='text-arwes'>
       {!isLoggedIn ? (
         <div className='container'>
-          <h1>Please sign up or login</h1>
+          <h1 className='my-3 text-2xl font-semibold'>
+            Please sign up or login
+          </h1>
           <input
             type='email'
             name='email'
@@ -162,11 +164,13 @@ const HarmonyPage = () => {
       ) : (
         <div>
           <div className='container'>
-            <h1>Current user: {userMetadata.email}</h1>
+            <h1 className='my-3 text-2xl font-semibold'>
+              Current user: {userMetadata.email}
+            </h1>
             <button onClick={logout}>Logout</button>
           </div>
           <div className='container'>
-            <h1>Harmony address</h1>
+            <h1 className='my-3 text-2xl font-semibold'>Harmony address</h1>
             <div className='info'>
               <a
                 href={`https://explorer.pops.one/#/address/${publicAddress}`}
@@ -177,7 +181,7 @@ const HarmonyPage = () => {
             </div>
           </div>
           <div className='container'>
-            <h1>Send Transaction</h1>
+            <h1 className='my-3 text-2xl font-semibold'>Send Transaction</h1>
             {txHash ? (
               <div>
                 <div>Send transaction success</div>
@@ -220,7 +224,7 @@ const HarmonyPage = () => {
             </button>
           </div>
           <div className='container'>
-            <h1>Smart Contract</h1>
+            <h1 className='my-3 text-2xl font-semibold'>Smart Contract</h1>
             {deployingContract ? (
               <div className='sending-status'>Deploying contract</div>
             ) : (
@@ -239,7 +243,7 @@ const HarmonyPage = () => {
             </button>
           </div>
           <div className='container'>
-            <h1>Contract Send</h1>
+            <h1 className='my-3 text-2xl font-semibold'>Contract Send</h1>
             {contractSending ? (
               <div className='sending-status'>Calling contract send</div>
             ) : (
