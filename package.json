@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "@harmony-js/core": "^0.1.57",
     "@magic-ext/harmony": "^0.1.0",
     "@pmndrs/branding": "^0.0.7",
     "@react-spring/three": "^9.0.0-rc.3",
@@ -47,6 +48,7 @@
     "react-three-fiber": "^5.3.18",
     "tailwindcss": "^2.0.3",
     "three": "^0.125.2",
+    "tslib": "^2.1.0",
     "webpack": "^5.23.0"
   },
   "devDependencies": {
