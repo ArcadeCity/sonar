@@ -929,6 +929,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@magic-ext/harmony@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@magic-ext/harmony/-/harmony-0.1.0.tgz#a6b0858b15edf1ec1fdc594290fc0af6632a1b7e"
+  integrity sha512-2VxV2gfNHbLr/MG4SE426yPgZQt8NcOMh3WGwWkRc88aE/bYQhHEohxJjnnL0jWNQCtdoiiX5LTeHQd74v8zZQ==
+
 "@magic-sdk/commons@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@magic-sdk/commons/-/commons-1.1.0.tgz#253fbbb8846b79e8defacda68ac30b0ac3581e7c"
