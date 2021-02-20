@@ -136,4 +136,68 @@ body {
     font-weight: 900;
     src: url('/fonts/JosefinSans-BlackItalic.ttf') format('truetype');
   } */
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/JosefinSans-Light.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/JosefinSans-LightItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/JosefinSans-Italic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/fonts/TitilliumWeb-SemiBold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/fonts/TitilliumWeb-SemiBoldItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url('/fonts/TitilliumWeb-Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 700;
+    src: url('/fonts/TitilliumWeb-BoldItalic.ttf') format('truetype');
+  }
 }

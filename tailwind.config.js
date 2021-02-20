@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: 'Josefin Sans',
+      arwes: 'Titillium Web',
     },
     extend: {
       colors: {
+        arwes: '#7efcf6',
+        arwes2: '#acf9fb',
         bio0: '#020202',
         bio1: '#001351',
         bio2: '#0C62A1',
