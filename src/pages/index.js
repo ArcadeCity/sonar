@@ -12,11 +12,11 @@ const Page = () => {
     <>
       <Lander r3f />
       <Login />
-      <div
-        style={{ fontSize: '10em' }}
-        className='uppercase font-sans top-0 left-0 right-0 flex absolute h-screen w-screen justify-center items-center text-white'
-      >
-        Sonar
+      <div className='uppercase font-sans top-0 left-0 right-0 flex flex-col absolute h-screen w-screen justify-center items-center text-white'>
+        <h1 className='leading-none' style={{ fontSize: '10em' }}>
+          Sonar
+        </h1>
+        <p className='text-2xl tracking-wide mt-4'>Connecting changemakers</p>
       </div>
     </>
   )

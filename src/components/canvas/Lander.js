@@ -1,9 +1,11 @@
-import { Suspense } from 'react'
+import { Suspense, useRef } from 'react'
+import { useResource, useThree } from 'react-three-fiber'
+import { Stars } from '@react-three/drei'
 
 const LanderComponent = () => {
   return (
     <Suspense fallback={null}>
-      <ambientLight intensity={0.5} />
+      <Stars count={500} fade />
     </Suspense>
   )
 }
