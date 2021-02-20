@@ -1,12 +1,18 @@
 @tailwind base;
 @tailwind components;
+
+html,
+body {
+  @apply bg-black;
+}
+
 @tailwind utilities;
 
 @layer base {
   * {
     box-sizing: border-box;
   }
-  
+
   html,
   body,
   #__next {
@@ -16,8 +22,156 @@
     padding: 0;
     overflow: hidden;
   }
-  html {
-    background-color: #000;
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/JosefinSans-Light.ttf') format('truetype');
   }
-  
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/JosefinSans-LightItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/JosefinSans-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/JosefinSans-Italic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+    src: url('/fonts/JosefinSans-Medium.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 500;
+    src: url('/fonts/JosefinSans-MediumItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/fonts/JosefinSans-SemiBold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/fonts/JosefinSans-SemiBoldItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url('/fonts/JosefinSans-Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 700;
+    src: url('/fonts/JosefinSans-BoldItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/TitilliumWeb-Light.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/TitilliumWeb-LightItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/TitilliumWeb-Italic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/fonts/TitilliumWeb-SemiBold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 600;
+    src: url('/fonts/TitilliumWeb-SemiBoldItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url('/fonts/TitilliumWeb-Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 700;
+    src: url('/fonts/TitilliumWeb-BoldItalic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 900;
+    src: url('/fonts/TitilliumWeb-Black.ttf') format('truetype');
+  }
 }
