@@ -50,7 +50,7 @@ const HarmonyPage = () => {
         setUserMetadata(await magic.user.getMetadata())
       }
     })
-  }, [magic])
+  }, [isLoggedIn])
 
   const login = async () => {
     await magic.auth.loginWithMagicLink({ email })
@@ -144,7 +144,7 @@ const HarmonyPage = () => {
   }
 
   return (
-    <div className='App'>
+    <div className='text-arwes'>
       {!isLoggedIn ? (
         <div className='container'>
           <h1>Please sign up or login</h1>
@@ -261,7 +261,6 @@ const HarmonyPage = () => {
       )}
     </div>
   )
-  // return <h1 className='text-arwes'>Harmony tests</h1>
 }
 
 export default HarmonyPage
