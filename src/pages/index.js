@@ -11,8 +11,7 @@ const Page = () => {
   return (
     <>
       <Lander r3f />
-
-      <div className='text-arwes uppercase font-sans top-0 left-0 right-0 flex flex-col absolute h-screen w-screen justify-center items-center'>
+      <div className='text-arwes uppercase font-josefin top-0 left-0 right-0 flex flex-col absolute h-screen w-screen justify-center items-center'>
         <h1
           className='leading-none'
           style={{
