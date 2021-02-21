@@ -12,54 +12,25 @@ const {
   toWei,
 } = require('@harmony-js/utils')
 
-const magic =
-  process.browser &&
-  new Magic(process.env.NEXT_PUBLIC_MAGIC_LIVE_PK, {
-    extensions: [
-      new HarmonyExtension({
-        rpcUrl: 'https://api.s0.t.hmny.io',
-        chainId: ChainID.HmyMainnet,
-        // rpcUrl: 'https://api.s0.b.hmny.io',
-        // chainId: ChainID.HmyTestnet,
-      }),
-    ],
-  })
-
-const harmony = new Index(
-  // rpc url
-  'https://api.s0.t.hmny.io',
-  // 'https://api.s0.b.hmny.io',
-  {
-    // chainType set to Index
-    chainType: ChainType.Harmony,
-    // chainType set to HmyLocal
-    chainId: ChainID.HmyMainnet,
-    // chainId: ChainID.HmyTestnet,
-  }
-)
-
 let contractAddress = '0xec9661e28d961945d84bd77ecf6be868aa7a46e7'
 
-const contractAbiFragment = [
-  {
-    name: 'balanceOf',
-    type: 'function',
-    inputs: [
-      {
-        name: '_owner',
-        type: 'address',
-      },
-    ],
-    outputs: [
-      {
-        name: 'balance',
-        type: 'uint256',
-      },
-    ],
-    constant: true,
-    payable: false,
-  },
-]
+// Mainnet
+const rpcUrl = 'https://api.s0.t.hmny.io'
+const magicPk = process.env.NEXT_PUBLIC_MAGIC_LIVE_PK
+const chainId = ChainID.HmyMainnet
+
+// Testnet
+// const rpcUrl = 'https://api.s0.b.hmny.io'
+// const magicPk = process.env.NEXT_PUBLIC_MAGIC_TEST_PK
+// const chainId = ChainID.HmyTestnet
+
+const magic =
+  process.browser &&
+  new Magic(magicPk, {
+    extensions: [new HarmonyExtension({ rpcUrl, chainId })],
+  })
+
+const harmony = new Index(rpcUrl, { chainId, chainType: ChainType.Harmony })
 
 const contractAbi = [
   {
@@ -108,18 +79,6 @@ const HarmonyPage = () => {
   const [sendingTransaction, setSendingTransaction] = useState(false)
   const [deployingContract, setDeployingContract] = useState(false)
 
-  // const checkHmyBalance = async (hrc20Address, addr) => {
-  //   const tokenJson = require('../out/MyERC20.json')
-  //   const hmyTokenContract = harmony.contracts.createContract(
-  //     tokenJson.abi,
-  //     hrc20Address
-  //   )
-
-  //   const addrHex = this.hmy.crypto.getAddress(addr).checksum
-
-  //   return await hmyTokenContract.methods.balanceOf(addrHex).call(this.options)
-  // }
-
   const queryArcdBalance = async () => {
     const tokenJson = require('../helpers/MyERC20.json')
 
@@ -130,11 +89,6 @@ const HarmonyPage = () => {
     )
     console.log('deployedContract', deployedContract)
     console.log(`Querying 1ARCD balance of ${publicAddress}`)
-
-    // const addrHex = harmony.crypto.getAddress(publicAddress).checksum
-    // console.log(`Using addrHex ${addrHex}`)
-
-    const options = { gasPrice: 1000000000, gasLimit: 6721900 }
 
     const tx = await deployedContract.methods.balanceOf(publicAddress)
 
@@ -159,6 +113,8 @@ const HarmonyPage = () => {
   }
 
   useEffect(() => {
+    console.log(magic.harmony.harmonyConfig)
+
     magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
       setIsLoggedIn(magicIsLoggedIn)
       if (magicIsLoggedIn) {
