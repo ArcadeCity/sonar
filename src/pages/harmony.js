@@ -3,31 +3,63 @@ import { Magic } from 'magic-sdk'
 import { HarmonyExtension } from '@magic-ext/harmony'
 
 const { Harmony: Index } = require('@harmony-js/core')
-const { ChainID, ChainType, Units, toWei } = require('@harmony-js/utils')
+const {
+  ChainID,
+  ChainType,
+  hexToNumber,
+  Units,
+  fromWei,
+  toWei,
+} = require('@harmony-js/utils')
 
 const magic =
   process.browser &&
-  new Magic(process.env.NEXT_PUBLIC_MAGIC_PK, {
+  new Magic(process.env.NEXT_PUBLIC_MAGIC_LIVE_PK, {
     extensions: [
       new HarmonyExtension({
-        rpcUrl: 'https://api.s0.b.hmny.io',
-        chainId: ChainID.HmyTestnet,
+        rpcUrl: 'https://api.s0.t.hmny.io',
+        chainId: ChainID.HmyMainnet,
+        // rpcUrl: 'https://api.s0.b.hmny.io',
+        // chainId: ChainID.HmyTestnet,
       }),
     ],
   })
 
 const harmony = new Index(
   // rpc url
-  'https://api.s0.b.hmny.io',
+  'https://api.s0.t.hmny.io',
+  // 'https://api.s0.b.hmny.io',
   {
     // chainType set to Index
     chainType: ChainType.Harmony,
     // chainType set to HmyLocal
-    chainId: ChainID.HmyTestnet,
+    chainId: ChainID.HmyMainnet,
+    // chainId: ChainID.HmyTestnet,
   }
 )
 
 let contractAddress = '0xec9661e28d961945d84bd77ecf6be868aa7a46e7'
+
+const contractAbiFragment = [
+  {
+    name: 'balanceOf',
+    type: 'function',
+    inputs: [
+      {
+        name: '_owner',
+        type: 'address',
+      },
+    ],
+    outputs: [
+      {
+        name: 'balance',
+        type: 'uint256',
+      },
+    ],
+    constant: true,
+    payable: false,
+  },
+]
 
 const contractAbi = [
   {
@@ -76,6 +108,56 @@ const HarmonyPage = () => {
   const [sendingTransaction, setSendingTransaction] = useState(false)
   const [deployingContract, setDeployingContract] = useState(false)
 
+  // const checkHmyBalance = async (hrc20Address, addr) => {
+  //   const tokenJson = require('../out/MyERC20.json')
+  //   const hmyTokenContract = harmony.contracts.createContract(
+  //     tokenJson.abi,
+  //     hrc20Address
+  //   )
+
+  //   const addrHex = this.hmy.crypto.getAddress(addr).checksum
+
+  //   return await hmyTokenContract.methods.balanceOf(addrHex).call(this.options)
+  // }
+
+  const queryArcdBalance = async () => {
+    const tokenJson = require('../helpers/MyERC20.json')
+
+    const deployedContract = harmony.contracts.createContract(
+      tokenJson.abi,
+      // '0x90edb740e0F02C532Fa90B7ED69Cbd4601F54A5c'
+      'one1jrkmws8q7qk9xtafpdldd89agcql2jjut5q985'
+    )
+    console.log('deployedContract', deployedContract)
+    console.log(`Querying 1ARCD balance of ${publicAddress}`)
+
+    // const addrHex = harmony.crypto.getAddress(publicAddress).checksum
+    // console.log(`Using addrHex ${addrHex}`)
+
+    const options = { gasPrice: 1000000000, gasLimit: 6721900 }
+
+    const tx = await deployedContract.methods.balanceOf(publicAddress)
+
+    console.log('tx:', tx)
+
+    let { txPayload } = tx.transaction
+    console.log('txPayload', txPayload)
+
+    txPayload.from = publicAddress
+    txPayload.gasLimit = '6721900'
+    txPayload.gasPrice = '1000000000'
+
+    setContractSending(true)
+
+    const txn = await magic.harmony.sendTransaction(txPayload)
+    console.log('txn', txn)
+
+    setContractSending(false)
+
+    setContractSendHash(txn.transactionHash)
+    console.log('call contract', txn)
+  }
+
   useEffect(() => {
     magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
       setIsLoggedIn(magicIsLoggedIn)
@@ -83,6 +165,15 @@ const HarmonyPage = () => {
         const { publicAddress } = await magic.user.getMetadata()
         setPublicAddress(publicAddress)
         setUserMetadata(await magic.user.getMetadata())
+
+        harmony.blockchain
+          .getBalance({ address: publicAddress })
+          .then((response) => {
+            console.log(
+              'balance in ONEs: ' +
+                fromWei(hexToNumber(response.result), Units.one)
+            )
+          })
       }
     })
   }, [isLoggedIn])
@@ -199,6 +290,7 @@ const HarmonyPage = () => {
       ) : (
         <div>
           <div className='container'>
+            <button onClick={queryArcdBalance}>Query ARCD balance</button>
             <h1 className='my-3 text-2xl font-semibold'>
               Current user: {userMetadata.email}
             </h1>
@@ -208,7 +300,7 @@ const HarmonyPage = () => {
             <h1 className='my-3 text-2xl font-semibold'>Harmony address</h1>
             <div className='info'>
               <a
-                href={`https://explorer.pops.one/#/address/${publicAddress}`}
+                href={`https://explorer.harmony.one/#/address/${publicAddress}`}
                 target='_blank'
               >
                 {publicAddress}
